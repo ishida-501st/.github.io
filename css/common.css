@@ -1,0 +1,191 @@
+header {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 40px;
+    align-items: center;
+    border-bottom: 1.5px solid #f47c19;
+}
+
+header a {
+    color: #FFF;
+}
+.menu-checkbox {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+}
+
+.logo {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    width: 200px;
+}
+
+header ul {
+    display: flex;
+}
+
+header li {
+    margin-right: 50px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+header li:last-of-type {
+    margin-right: 0px;
+}
+header a:hover {
+    color: #f47c19;
+    transition: color 0.3s ease;
+}
+footer {
+    border-top: 3px solid #f47c19;
+    background-color: rgb(20, 20, 20);
+    padding: 40px;
+    font-size: 1.3rem;
+    color: #FFF;
+    position: relative;
+}
+
+footer p {
+    line-height: 2;
+    font-size: 1.1rem;
+    margin: 0 0 60px;
+}
+
+footer h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+    text-align: left;
+}
+
+footer div {
+    line-height: 3;
+}
+
+footer .f-content {
+    display: flex;
+    justify-content: space-between;
+}
+.content {
+    max-height:initial;
+}
+footer .logo{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    min-width: 300px;
+}
+@media screen and (max-width: 768px) {
+    header ul {
+        display: block ;
+    }
+    .hamburger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 24px;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transition: all 0.3s;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 11px; }
+    .hamburger span:nth-child(3) { bottom: 0; }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(20, 20, 20, 0.98);
+        transition: all 0.4s ease;
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header ul li {
+        text-align: center;
+        margin: 0 0 50px;
+        font-size: 1.5rem;
+    }
+
+    .menu-checkbox:checked ~ .nav-menu {
+        right: 0;
+    }
+    .menu-checkbox:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(11px) rotate(-45deg);
+    }
+    .menu-checkbox:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-checkbox:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-11px) rotate(45deg);
+    }
+
+    footer h3 {
+        margin: 10px 0 10px;
+    }
+    footer .f-content {
+        display: block;
+        justify-content: space-between;
+    }
+
+    footer h3 {
+
+        position: relative;
+        padding-right: 20px;
+    }
+
+    footer h3::after {
+        content: "＋";
+        position: absolute;
+        right: 0;
+        transition: transform 0.3s ease;
+    }
+
+    footer h3.open::after {
+        content: "−";
+    }
+
+    footer .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    footer .content.open {
+        max-height: 500px;
+    }
+    footer .logo{
+        position: initial;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto 0;
+        width: 200px;
+        bottom: initial;
+        left: initial;
+    }
+        .btn-detail {
+            right: 10px;  /* スマホでは少し端に寄せる */
+            bottom: 10px;
+            padding: 8px 16px; /* ボタンを少し小さく */
+            font-size: 12px;
+        }
+}

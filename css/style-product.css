@@ -1,0 +1,242 @@
+/* --- レイアウト全体 --- */
+.product-page {
+    margin: 0 auto;
+    color: #333;
+}
+
+/* --- メインセクション --- */
+.product-main {
+    margin:  calc(50% - 50vw);  /* 画面幅いっぱいにはみ出させるためのネガティブマージン */
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 40px;
+}
+
+.product-gallery {
+    position: static;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.product-gallery img {
+    margin: auto 0;
+    grid-area: 1 / 1;
+    width: 70%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 0 0 0 20px;
+    transition: opacity 1.0s ease-in-out;
+    opacity: 1;
+}
+
+.is-old {
+    opacity: 0;
+}
+.info{
+    padding:5%;
+    margin: auto 0;
+}
+.product-info {
+    flex: 1;
+}
+
+
+/* --- テキスト情報 --- */
+.product-name {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #f47c19; /* オレンジはそのままアクセントに */
+    margin-bottom: 5px;
+}
+.shipping-info {
+    font-size: 1.4rem;
+    color: #888;
+}
+
+.select-group h3 {
+    font-size: 1.8rem;
+    margin: 40px 0 15px;
+    color: #888;
+}
+.select-group p{
+    margin: 10px 0 0 0;
+    line-height: 1.7;
+}
+
+.option-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.option-list li {
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    border: 1px solid #ddd; /* 薄いグレーの線 */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.option-list li.active {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.colors li::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-white::before { background: #fff; }
+.color-chrome::before { background: #e1e1e1; }
+.color-gunmetal::before { background: #535353; }
+.color-green::before { background: #1a8e43; }
+.color-silver::before { background: #c0c0c0; }
+
+.btn-cart {
+    display: block;
+    margin-top: 50px;
+    padding: 22px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-cart:hover {
+    background: #f47c19;
+    transform: translateY(-2px);
+}
+
+.product-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 80px;
+}
+
+.detail-pics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-pics img, .detail-size img {
+    border-radius: 12px;
+    object-fit:cover;
+
+}
+
+.product-spec-detail {
+    border-top: 1px solid #111;
+    position: relative;
+    z-index: 20;
+}
+
+.spec-container {
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.spec-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-list dt {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #999;
+    padding-top: 50px;
+    margin-bottom: 12px;
+    border-top: 1px solid #f2f2f2;
+}
+
+.spec-list dt:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* スペック内容 */
+.spec-list dd {
+    font-size: 1.8rem; /* 大きくハッキリと */
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 50px 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.spec-list dd span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+/* --- モバイル対応 --- */
+@media (max-width: 768px) {
+    .product-spec-detail {
+        padding: 60px 0;
+    }
+    
+    .spec-list dd {
+        font-size: 1.4rem; /* スマホでは少し抑える */
+        margin-bottom: 40px;
+    }
+    
+    .spec-list dt {
+        padding-top: 30px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .product-main {
+        flex-direction: column;
+        margin-right: 0;
+    }
+    
+    .product-gallery {
+        width: 100%;
+    }
+    
+    .main-img {
+        border-radius: 0;
+    }
+    
+    .info {
+        margin: 40px 20px;
+    }
+    
+    .product-name {
+        font-size: 2.8rem;
+    }
+
+    .detail-pics {
+        grid-template-columns: 1fr;
+    }
+}
